@@ -10,7 +10,7 @@
 				"status": "active",
 				"description": "The Basics Package",
 				"features": {
-					"conferenceCalling": true, 
+					"conferenceCalling": true,
 					"callWaiting": false,
 					"voicemail": true
 				}
@@ -20,12 +20,12 @@
 			"name": "Tom Brady",
 			"email": "tom.brady@gmail.com",
 			"age": 54,
-			"plan": { 
+			"plan": {
 				"type" :"premium",
 				"status": "active",
 				"description": "The Premium Package",
 				"features": {
-					"conferenceCalling": true, 
+					"conferenceCalling": true,
 					"callWaiting": true,
 					"voicemail": true
 				}
@@ -40,7 +40,7 @@
 				"status": "inactive",
 				"description": "The Basics Package",
 				"features": {
-					"conferenceCalling": false, 
+					"conferenceCalling": false,
 					"callWaiting": false,
 					"voicemail": true
 				}
@@ -55,7 +55,7 @@
 				"status": "active",
 				"description": "The Lite Package",
 				"features": {
-					"conferenceCalling": false, 
+					"conferenceCalling": false,
 					"callWaiting": false,
 					"voicemail": true
 				}
@@ -70,7 +70,7 @@
 				"status": "active",
 				"description": "The Lite Package",
 				"features": {
-					"conferenceCalling": true, 
+					"conferenceCalling": true,
 					"callWaiting": false,
 					"voicemail": true
 				}
@@ -81,11 +81,11 @@
 			"email": "thecase48@test.com",
 			"age": 67,
 			"plan": {
-				"type": "basic"
+				"type": "basic",
 				"status": "active",
 				"description": "The Lite Package",
 				"features": {
-					"conferenceCalling": false, 
+					"conferenceCalling": false,
 					"callWaiting": false,
 					"voicemail": true
 				}
@@ -100,7 +100,7 @@
 				"status": "active",
 				"description": "The Ultimate Package",
 				"features": {
-					"conferenceCalling": true, 
+					"conferenceCalling": true,
 					"callWaiting": true,
 					"voicemail": true
 				}
@@ -115,7 +115,7 @@
 				"status": "active",
 				"description": "The Lite Package",
 				"features": {
-					"conferenceCalling": true, 
+					"conferenceCalling": true,
 					"callWaiting": false,
 					"voicemail": true
 				}
@@ -130,7 +130,7 @@
 				"status": "inactive",
 				"description": "The Premium Package",
 				"features": {
-					"conferenceCalling": true, 
+					"conferenceCalling": true,
 					"callWaiting": false,
 					"voicemail": true
 				}
@@ -145,11 +145,11 @@
 				"status": "active",
 				"description": "The Basics Package",
 				"features": {
-					"conferenceCalling": true, 
+					"conferenceCalling": true,
 					"callWaiting": false,
 					"voicemail": true
 				}
 			}
 	}]
-	
+
 }
