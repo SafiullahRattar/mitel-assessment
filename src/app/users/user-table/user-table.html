@@ -1,0 +1,42 @@
+<div class="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th class="num col-age">Age</th>
+        <th>Plan</th>
+        <th>Status</th>
+        @for (f of featureKeys; track f) {
+          <th class="feat">{{ featureLabels[f] }}</th>
+        }
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (user of users(); track user.id) {
+        <tr>
+          <td>
+            <button type="button" class="name-btn">{{ user.name }}</button>
+            <span class="sub">{{ user.email }}</span>
+          </td>
+          <td class="num col-age">{{ user.age }}</td>
+          <td>{{ user.plan.type | titlecase }}</td>
+          <td>
+            <span class="dot" [class.active]="user.plan.status == 'active'">{{
+              user.plan.status | titlecase
+            }}</span>
+          </td>
+          @for (f of featureKeys; track f) {
+            <td class="feat">
+              @if (user.plan.features[f]) {
+                <span class="yes">✓</span>
+              } @else {
+                <span class="no">✕</span>
+              }
+            </td>
+          }
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

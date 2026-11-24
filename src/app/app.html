@@ -21,6 +21,6 @@
       <button type="button" class="link" (click)="srvc.reload()">Reload Users</button>
     </div>
   } @else {
-    <p>User table</p>
+    <app-user-table [users]="srvc.users()"/>
   }
 </main>

@@ -26,3 +26,25 @@ body {
   text-decoration: underline;
   cursor: pointer;
 }
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: #9aa3a3;
+}
+
+.dot.active {
+  background: #1e7a45;
+}
+
+.yes {
+  color: #1e7a46;
+  font-weight: 700;
+}
+
+.no {
+  color: #ff2182;
+}
