@@ -1,12 +1,26 @@
-@if (srvc.loading()){
-  <p>Loading...</p>
-} @else if (srvc.error()){
-  <p>Error: {{srvc.error()}}</p>
-} @else {
-  <ul>
-    @for (user of srvc.users(); track user.id){
-      <li> {{user.name}} {{user.email}} {{user.plan.description}}</li>
-    }
+<header class="topbar">
+  <div class="inner-topbar">
+    <span class="title-topbar"> Admin Panel </span>
+  </div>
+</header>
 
-  </ul>
-}
+<main>
+  <div class="page-header">
+    <h1>Users</h1>
+
+    @if (srvc.users().length) {
+      <p>{{ srvc.users().length }} users</p>
+    }
+  </div>
+
+  @if (srvc.loading()) {
+    <p class="state">Loading...</p>
+  } @else if (srvc.error()) {
+    <div class="state">
+      <p>Users couldn't be loaded</p>
+      <button type="button" class="link" (click)="srvc.reload()">Reload Users</button>
+    </div>
+  } @else {
+    <p>User table</p>
+  }
+</main>

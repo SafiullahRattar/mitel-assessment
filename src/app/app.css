@@ -1,0 +1,51 @@
+.topbar {
+  background: #14213d;
+  color: #fff;
+}
+
+.inner-topbar {
+  max-width: 1280px;
+  height: 52px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+}
+
+.title-topbar {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+main {
+  max-width: 1280px;
+
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+.page-header p {
+  margin: 2px 0 0;
+  color: #5b6471;
+}
+
+.page-header {
+  margin-bottom: 20px;
+}
+
+.state {
+  padding: 48px;
+  text-align: center;
+  color: #5b6471;
+}
+
+@media (max-width: 760px) {
+  main {
+    padding: 16px;
+  }
+}
