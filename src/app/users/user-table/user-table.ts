@@ -3,6 +3,7 @@ import { Component, computed, input, signal } from '@angular/core';
 import { FEATURE_KEYS, FEATURE_LABELS_TO_SHOW, User } from '../user.model';
 
 type View = 'all' | 'active' | 'inactive';
+type SortKey = 'name' | 'age';
 
 const VIEWS: { key: View; label: string; test: (u: User) => boolean }[] = [
   { key: 'all', label: 'All', test: () => true },
@@ -27,16 +28,37 @@ export class UserTable {
   readonly tabs = computed(() =>
     VIEWS.map((v) => ({ ...v, count: this.users().filter(v.test).length })),
   );
+
+  readonly sortKey = signal<SortKey>('name');
+  readonly sortDir = signal<1 | -1>(1);
+
+  protected sortBy(key: SortKey) {
+    if (this.sortKey() === key) {
+      this.sortDir.update((d) => (d === 1 ? -1 : 1));
+    } else {
+      this.sortKey.set(key);
+      this.sortDir.set(1);
+    }
+  }
+
+  protected arrow(key: SortKey) {
+    if (this.sortKey() !== key) return '↕';
+    return this.sortDir() === 1 ? '↑' : '↓';
+  }
   readonly rows = computed(() => {
     const inView = VIEWS.find((v) => v.key === this.view())!.test;
     const query = this.search().trim().toLowerCase();
-    return this.users().filter(
-      (user) =>
-        inView(user) &&
-        (!this.plan() || user.plan.type === this.plan()) &&
-        (!query ||
-          user.name.toLowerCase().includes(query) ||
-          user.email.toLowerCase().includes(query)),
-    );
+    const key = this.sortKey();
+    const dir = this.sortDir();
+    return this.users()
+      .filter(
+        (user) =>
+          inView(user) &&
+          (!this.plan() || user.plan.type === this.plan()) &&
+          (!query ||
+            user.name.toLowerCase().includes(query) ||
+            user.email.toLowerCase().includes(query)),
+      )
+      .sort((a, b) => (key === 'age' ? a.age - b.age : a.name.localeCompare(b.name)) * dir);
   });
 }

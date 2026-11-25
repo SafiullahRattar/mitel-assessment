@@ -28,8 +28,14 @@
   <table>
     <thead>
       <tr>
-        <th>Name</th>
-        <th class="num col-age">Age</th>
+        <th>
+          <button type="button" class="sort" (click)="sortBy('name')">
+            Name {{ arrow('name') }}
+          </button>
+        </th>
+        <th class="num col-age">
+          <button type="button" class="sort" (click)="sortBy('age')">Age {{ arrow('age') }}</button>
+        </th>
         <th>Plan</th>
         <th>Status</th>
         @for (f of featureKeys; track f) {
