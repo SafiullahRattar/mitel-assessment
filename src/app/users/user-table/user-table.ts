@@ -61,4 +61,11 @@ export class UserTable {
       )
       .sort((a, b) => (key === 'age' ? a.age - b.age : a.name.localeCompare(b.name)) * dir);
   });
+
+
+  protected clearFilters() {
+    this.view.set('all');
+    this.plan.set('');
+    this.search.set('');
+  }
 }

@@ -68,6 +68,13 @@
             </td>
           }
         </tr>
+      } @empty {
+        <tr class="empty">
+          <td colspan="7">
+            No users match these filters
+            <button type="button" class="link" (click)="clearFilters()">Clear Filters</button>
+          </td>
+        </tr>
       }
     </tbody>
   </table>
