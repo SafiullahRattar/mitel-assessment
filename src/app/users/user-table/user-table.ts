@@ -18,7 +18,7 @@ const VIEWS: { key: View; label: string; test: (u: User) => boolean }[] = [
 })
 export class UserTable {
   readonly users = input.required<User[]>();
-  readonly selectedId = input<string | null>(null);
+  readonly selected = input<User | null>(null);
   readonly userSelected = output<User>();
 
   readonly featureKeys = FEATURE_KEYS;

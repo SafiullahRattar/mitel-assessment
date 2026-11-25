@@ -21,8 +21,8 @@
       <button type="button" class="link" (click)="srvc.reload()">Reload Users</button>
     </div>
   } @else {
-    <app-user-table [users]="srvc.users()" [selectedId]="selectedId()" (userSelected)="selectedId.set($event.id)"/>
+    <app-user-table [users]="srvc.users()" [selected]="selected()" (userSelected)="selected.set($event)"/>
   }
 </main>
 
-<app-user-drawer [user]="selected()" (closed)="selectedId.set(null)"/>
+<app-user-drawer [user]="selected()" (closed)="selected.set(null)"/>

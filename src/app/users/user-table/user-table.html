@@ -46,7 +46,7 @@
 
     <tbody>
       @for (user of rows(); track user) {
-        <tr [class.selected]="user.id === selectedId()" (click)="userSelected.emit(user)">
+        <tr [class.selected]="user === selected()" (click)="userSelected.emit(user)">
           <td>
             <button type="button" class="name-btn">{{ user.name }}</button>
             <span class="sub">{{ user.email }}</span>
