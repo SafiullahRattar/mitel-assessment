@@ -46,7 +46,7 @@
 
     <tbody>
       @for (user of rows(); track user) {
-        <tr>
+        <tr [class.selected]="user.id === selectedId()" (click)="userSelected.emit(user)">
           <td>
             <button type="button" class="name-btn">{{ user.name }}</button>
             <span class="sub">{{ user.email }}</span>
@@ -54,9 +54,9 @@
           <td class="num col-age">{{ user.age }}</td>
           <td>{{ user.plan.type | titlecase }}</td>
           <td>
-            <span class="dot" [class.active]="user.plan.status == 'active'">{{
+            <span class="dot" [class.active]="user.plan.status === 'active'"></span>{{
               user.plan.status | titlecase
-            }}</span>
+            }}
           </td>
           @for (f of featureKeys; track f) {
             <td class="feat">

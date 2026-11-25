@@ -1,5 +1,5 @@
 import { TitleCasePipe } from '@angular/common';
-import { Component, computed, input, signal } from '@angular/core';
+import { Component, computed, input, output, signal } from '@angular/core';
 import { FEATURE_KEYS, FEATURE_LABELS_TO_SHOW, User } from '../user.model';
 
 type View = 'all' | 'active' | 'inactive';
@@ -18,6 +18,8 @@ const VIEWS: { key: View; label: string; test: (u: User) => boolean }[] = [
 })
 export class UserTable {
   readonly users = input.required<User[]>();
+  readonly selectedId = input<string | null>(null);
+  readonly userSelected = output<User>();
 
   readonly featureKeys = FEATURE_KEYS;
   readonly featureLabels = FEATURE_LABELS_TO_SHOW;
