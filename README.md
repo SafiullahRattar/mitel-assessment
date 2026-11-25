@@ -6,7 +6,9 @@ Problems:
 3) For user casey daniels, the plan type is basic, but plan description is the lite package
 4) The features of conference calling, call waiting, and voicemail don't map to plans, users with the same plans have different features, so I derived features from the user rather than from the plan
 
-To fix issues 2 and 3, I added a warnings table, so that an admin can directly notice these problems
+To fix issues 2 and 3, I added a warnings list to users with a review tab,  so that an admin can directly notice these problems
+
+Run with ng serve
 
 Thanks,
 Safi
