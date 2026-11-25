@@ -111,6 +111,12 @@ h3 {
   margin: 0;
   padding-left: 18px;
 }
+.email {
+  margin: 2px 0 0;
+  color: #5b6472;
+  font-size: 13px;
+}
+
 @media (max-width: 760px) {
   .drawer {
     width: 100vw;
