@@ -4,7 +4,7 @@ import { PLAN_DESCRIPTIONS, RawUser, User } from './user.model';
 
 @Service()
 export class UserService {
-  private db = httpResource<{ users: User[] }>(() => 'db.json');
+  private db = httpResource<{ users: RawUser[] }>(() => 'db.json');
 
   readonly users = computed(() => (this.db.hasValue() ? addWarnings(this.db.value().users) : []));
   readonly loading = this.db.isLoading;

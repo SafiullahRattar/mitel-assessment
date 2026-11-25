@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { UserService } from './users/user.service';
 import { UserTable } from './users/user-table/user-table';
 import { UserDrawer } from './users/user-drawer/user-drawer';

@@ -65,7 +65,7 @@ input[type='search'] {
   width: 240px;
 }
 
-.table-wrap {
+.table-wrapper {
   overflow-x: auto;
   background: #fff;
   border: 1px solid #dfe3e8;
