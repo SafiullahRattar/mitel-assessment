@@ -1,3 +1,29 @@
+<div class="toolbar">
+  <div class="tabs">
+    @for (t of tabs(); track t.key) {
+      <button type="button" class="tab" [class.active]="view() === t.key" (click)="view.set(t.key)">
+        {{ t.label }}
+        <span class="n">{{ t.count }}</span>
+      </button>
+    }
+  </div>
+  <div class="filters">
+    <select #p [value]="plan()" (change)="plan.set(p.value)">
+      <option value="">All plans</option>
+      <option value="basic">Basic</option>
+      <option value="lite">Lite</option>
+      <option value="premium">Premium</option>
+      <option value="ultimate">Ultimate</option>
+    </select>
+    <input
+      #q
+      type="search"
+      placeholder="Search name or email"
+      [value]="search()"
+      (input)="search.set(q.value)"
+    />
+  </div>
+</div>
 <div class="table-wrapper">
   <table>
     <thead>
@@ -13,7 +39,7 @@
     </thead>
 
     <tbody>
-      @for (user of users(); track user.id) {
+      @for (user of rows(); track user) {
         <tr>
           <td>
             <button type="button" class="name-btn">{{ user.name }}</button>
