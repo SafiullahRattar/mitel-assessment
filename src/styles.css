@@ -48,3 +48,13 @@ body {
 .no {
   color: #ff2182;
 }
+
+.review {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #8a5a00;
+  border-radius: 3px;
+  padding: 0 5px;
+}

@@ -96,6 +96,21 @@ h3 {
   border-bottom: 1px solid #dfe3e8;
 }
 
+.notice {
+  margin-top: 18px;
+  padding: 10px 12px;
+  background: #fff6fa;
+}
+
+.notice strong {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.notice ul {
+  margin: 0;
+  padding-left: 18px;
+}
 @media (max-width: 760px) {
   .drawer {
     width: 100vw;

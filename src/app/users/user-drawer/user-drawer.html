@@ -10,6 +10,17 @@
       <div class="drawer-body">
         <h2>{{ user.name }}</h2>
         <h3>{{ user.email }}</h3>
+        @if(user.warnings.length) {
+          <div class="notice">
+            <strong>Needs Review</strong>
+            <ul>
+            @for(w of user.warnings; track w) {
+                <li>{{w}}</li>
+              }
+
+            </ul>
+          </div>
+        }
         <h3>Account</h3>
         <dl class="props">
           <dt>User ID</dt>

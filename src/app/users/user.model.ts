@@ -8,7 +8,7 @@ export interface Features {
   voicemail: boolean;
 }
 
-export interface User {
+export interface RawUser {
   id: string;
   name: string;
   email: string;
@@ -19,6 +19,18 @@ export interface User {
     description: string;
     features: Features;
   };
+}
+
+export interface User extends RawUser {
+  warnings: string[];
+}
+
+export const PLAN_DESCRIPTIONS: Record<PlanType, string> = {
+  basic: 'The Basics Package',
+  lite: 'The Lite Package',
+  premium: 'The Premium Package',
+  ultimate: 'The Ultimate Package',
+
 }
 
 export const FEATURE_LABELS_TO_SHOW: Record<keyof Features, string> = {

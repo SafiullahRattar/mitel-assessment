@@ -49,6 +49,9 @@
         <tr [class.selected]="user === selected()" (click)="userSelected.emit(user)">
           <td>
             <button type="button" class="name-btn">{{ user.name }}</button>
+            @if (user.warnings.length) {
+              <span class="review">Review</span>
+            }
             <span class="sub">{{ user.email }}</span>
           </td>
           <td class="num col-age">{{ user.age }}</td>

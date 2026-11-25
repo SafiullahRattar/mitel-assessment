@@ -2,13 +2,14 @@ import { TitleCasePipe } from '@angular/common';
 import { Component, computed, input, output, signal } from '@angular/core';
 import { FEATURE_KEYS, FEATURE_LABELS_TO_SHOW, User } from '../user.model';
 
-type View = 'all' | 'active' | 'inactive';
+type View = 'all' | 'active' | 'inactive' | 'review';
 type SortKey = 'name' | 'age';
 
 const VIEWS: { key: View; label: string; test: (u: User) => boolean }[] = [
   { key: 'all', label: 'All', test: () => true },
   { key: 'active', label: 'Active', test: (u) => u.plan.status === 'active' },
   { key: 'inactive', label: 'Inactive', test: (u) => u.plan.status === 'inactive' },
+  { key: 'review', label: 'Needs review', test: (u) => u.warnings.length > 0 },
 ];
 @Component({
   imports: [TitleCasePipe],
@@ -63,7 +64,6 @@ export class UserTable {
       )
       .sort((a, b) => (key === 'age' ? a.age - b.age : a.name.localeCompare(b.name)) * dir);
   });
-
 
   protected clearFilters() {
     this.view.set('all');
