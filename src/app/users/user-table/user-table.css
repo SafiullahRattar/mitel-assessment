@@ -147,13 +147,6 @@ tbody tr:last-child td {
   font-size: 13px;
 }
 
-.foot {
-  padding: 10px 14px;
-  border-top: 1px solid #dfe3e8;
-  color: #5b6472;
-  font-size: 13px;
-}
-
 .empty td {
   padding: 40px;
   text-align: center;
