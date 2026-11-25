@@ -1,1 +1,47 @@
-<p>user-drawer works!</p>
+<dialog #dialog class="drawer" (close)="closed.emit()" (click)="closeOnBackDrop($event)">
+  @if (user(); as user) {
+    <div class="drawer-panel">
+      <div class="drawer-head">
+        <span>User Details</span>
+
+        <button type="button" class="x" (click)="dialog.close()">✕</button>
+      </div>
+
+      <div class="drawer-body">
+        <h2>{{ user.name }}</h2>
+        <h3>{{ user.email }}</h3>
+        <h3>Account</h3>
+        <dl class="props">
+          <dt>User ID</dt>
+          <dd class="mono">{{ user.id }}</dd>
+          <dt>Age</dt>
+          <dd>{{ user.age }}</dd>
+          <dt>Status</dt>
+          <dd>
+            <span class="dot" [class.active]="user.plan.status === 'active'"></span
+            >{{ user.plan.status | titlecase }}
+          </dd>
+          <dt>Plan</dt>
+          <dd>{{ user.plan.type | titlecase }}</dd>
+          <dt>Description</dt>
+          <dd>{{ user.plan.description }}</dd>
+        </dl>
+
+        <h3>Features</h3>
+
+        <ul class="feature-list">
+          @for (f of featureKeys; track f) {
+            <li>
+              <span>{{ featureLabels[f] }}</span>
+              @if (user.plan.features[f]) {
+                <span class="yes">Included</span>
+              } @else {
+                <span class="no">Not included</span>
+              }
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  }
+</dialog>

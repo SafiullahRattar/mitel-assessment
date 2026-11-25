@@ -14,13 +14,15 @@
   </div>
 
   @if (srvc.loading()) {
-    <p class="state">Loading...</p>
+    <p class="state">Loading users...</p>
   } @else if (srvc.error()) {
     <div class="state">
       <p>Users couldn't be loaded</p>
       <button type="button" class="link" (click)="srvc.reload()">Reload Users</button>
     </div>
   } @else {
-    <app-user-table [users]="srvc.users()"/>
+    <app-user-table [users]="srvc.users()" [selectedId]="selectedId()" (userSelected)="selectedId.set($event.id)"/>
   }
 </main>
+
+<app-user-drawer [user]="selected()" (closed)="selectedId.set(null)"/>
